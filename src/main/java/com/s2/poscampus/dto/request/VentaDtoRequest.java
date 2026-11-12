@@ -8,16 +8,23 @@ import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
 
+@Schema(description = "Datos necesarios para registrar o actualizar una venta")
 public record VentaDtoRequest(
-        @Schema(description = "HOLAAAAA", example = "234567890")
-        @NotNull(message = "Error, debe poner algo hpta")
-        @Positive(message = "Error, desde cuando hay una identificacion en negativo pedazo de mongolo, arregle esa mrd")
+
+        @Schema(description = "Número de documento del cliente", example = "1098765432")
+        @NotNull(message = "El documento del cliente es obligatorio")
+        @Positive(message = "El documento del cliente debe ser un número positivo")
         Long documentoCliente,
-        @NotBlank(message = "Error, ponga algo idiota")
-        @Size(min = 2, max = 150, message = "Error, el rango es de 2 a 150")
+
+        @Schema(description = "Nombre completo del cliente", example = "Ana María Pérez",
+                minLength = 2, maxLength = 50)
+        @NotBlank(message = "El nombre completo es obligatorio")
+        @Size(min = 2, max = 50, message = "El nombre debe tener entre 2 y 50 caracteres")
         String nombreCompleto,
-        @NotNull(message = "Error, debe poner algo hpta")
-        @Positive(message = "Error, el total debe ser positivo imbecil")
+
+        @Schema(description = "Valor total de la venta", example = "160000")
+        @NotNull(message = "El total es obligatorio")
+        @Positive(message = "El total debe ser positivo")
         BigDecimal total
 ) {
 }

@@ -14,4 +14,6 @@ public interface ProductoService {
     List<ProductoDtoResponse> listar();
     ProductoDtoResponse buscarId(Long id);
     List<ProductoDtoResponse> buscarMarca(String nombre);
+
+    //ejercicio
 }
