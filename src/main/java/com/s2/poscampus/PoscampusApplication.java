@@ -2,7 +2,7 @@ package com.s2.poscampus;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+//HECHA EN CLASE
 @SpringBootApplication
 public class PoscampusApplication {
 
